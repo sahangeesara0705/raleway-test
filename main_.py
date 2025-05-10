@@ -1,21 +1,21 @@
-from fastapi import FastAPI
-from ariadne import gql, make_executable_schema, QueryType
-from ariadne.asgi import GraphQL
+# from fastapi import FastAPI
+# from ariadne import gql, make_executable_schema, QueryType
+# from ariadne.asgi import GraphQL
 
-type_defs = gql("""
-    type Query {
-        hello: String!
-    }
-""")
+# type_defs = gql("""
+#     type Query {
+#         hello: String!
+#     }
+# """)
 
-query = QueryType()
+# query = QueryType()
 
-@query.field("hello")
-def resolve_hello(_, info):
-    return "Hello, world!"
+# @query.field("hello")
+# def resolve_hello(_, info):
+#     return "Hello, world!"
 
-schema = make_executable_schema(type_defs, query)
+# schema = make_executable_schema(type_defs, query)
 
-app = FastAPI()
-app.mount("/graphql", GraphQL(schema, debug=True))
+# app = FastAPI()
+# app.mount("/graphql", GraphQL(schema, debug=True))
 
